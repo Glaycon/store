@@ -865,7 +865,7 @@
   <div class="error-wrapper" id="errorWrapper" role="alert" aria-live="assertive">
     <div class="error-icon">⚠️</div>
     <p class="error-title">Não foi possível carregar os apps</p>
-    <p class="error-msg" id="errorMsg">Erro ao carregar. Verifique a URL do Apps Script.</p>
+    <p class="error-msg" id="errorMsg">Erro ao carregar os dados.</p>
     <button class="btn-retry" id="retryBtn" tabindex="0">🔄 Tentar novamente</button>
   </div>
 
@@ -953,7 +953,7 @@
     emptyWrapper.style.display   = 'none';
     appsGrid.innerHTML           = '';
     appsCount.textContent        = '';
-    document.getElementById('errorMsg').textContent = msg || 'Erro ao carregar. Verifique a URL do Apps Script.';
+    document.getElementById('errorMsg').textContent = msg || 'Erro ao carregar.';
     rebuildFocusables();
   }
 
@@ -975,8 +975,8 @@
   async function loadApps() {
     showLoading();
 
-    if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbwfwA_GnJVKfyKTbOWrqHMQbUjWOD0BxlgZkw0JAqfEeW1zxhDgkBYLShSKvS2sBd4a2Q/exec') {
-      showError('URL do Apps Script não configurada. Edite a constante APPS_SCRIPT_URL no início do script.');
+    if (!APPS_SCRIPT_URL) {
+      showError('URL do Apps Script não configurada.');
       return;
     }
 
@@ -993,7 +993,7 @@
 
     } catch (err) {
       console.error('[PlayTV Store] Erro ao carregar apps:', err);
-      showError('Erro ao carregar. Verifique a URL do Apps Script.\n' + err.message);
+      showError('Erro ao carregar da planilha.\n' + err.message);
     }
   }
 
