@@ -892,7 +892,7 @@
   // ============================================================
   //  CONFIGURATION
   // ============================================================
-  const APPS_SCRIPT_URL = 'COLE_AQUI_A_URL_DO_APPS_SCRIPT';
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwfwA_GnJVKfyKTbOWrqHMQbUjWOD0BxlgZkw0JAqfEeW1zxhDgkBYLShSKvS2sBd4a2Q/exec';
 
   // ============================================================
   //  AUDIO FEEDBACK (subtle beep via AudioContext)
@@ -975,7 +975,7 @@
   async function loadApps() {
     showLoading();
 
-    if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'COLE_AQUI_A_URL_DO_APPS_SCRIPT') {
+    if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbwfwA_GnJVKfyKTbOWrqHMQbUjWOD0BxlgZkw0JAqfEeW1zxhDgkBYLShSKvS2sBd4a2Q/exec') {
       showError('URL do Apps Script não configurada. Edite a constante APPS_SCRIPT_URL no início do script.');
       return;
     }
