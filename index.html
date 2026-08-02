@@ -3,107 +3,1316 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PlayTV Store — Apps para TV Box, Smart TV e mais</title>
-  <meta name="description" content="Baixe apps para TV Box, Smart TV Android, iPhone, iPad e computador. PlayTV Extreme, XCIPTV, Smarters e muito mais." />
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body data-page="store">
+  <title>PlayTV Store — Apps para TV</title>
+  <meta name="description" content="PlayTV Store — Encontre os melhores apps para Android TV, iPhone, iPad, Computador e muito mais." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* =========================================================
+       RESET & BASE
+    ========================================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  <!-- TOPBAR -->
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <div class="brand-area">
-        <div class="brand-logo-wrap">
-          <img src="logo.png" alt="PlayTV Store" class="brand-logo"
-               onerror="this.style.display='none'; this.parentElement.classList.add('logo-fallback')">
-        </div>
-        <div>
-          <h1 class="page-title">STORE APPS</h1>
-          <p class="page-subtitle">Baixe apps para TV Box, Smart TV, celular, iPhone e computador.</p>
-        </div>
+    :root {
+      --bg-start:       #0d0919;
+      --bg-mid:         #1a0d2e;
+      --bg-end:         #0d1a2e;
+      --accent-orange:  #ff7a18;
+      --accent-pink:    #ff3d81;
+      --accent-grad:    linear-gradient(90deg, #ff7a18, #ff3d81);
+      --accent-grad-135:linear-gradient(135deg, #ff7a18, #ff3d81);
+      --glass-bg:       rgba(255, 255, 255, 0.05);
+      --glass-border:   rgba(255, 255, 255, 0.10);
+      --glass-hover:    rgba(255, 255, 255, 0.09);
+      --text-primary:   #f0eaf8;
+      --text-secondary: #9a8bb5;
+      --text-muted:     #6b5d85;
+      --card-radius:    18px;
+      --tab-radius:     50px;
+      --transition:     0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      --focus-glow:     0 0 0 3px rgba(255, 122, 24, 0.55);
+    }
+
+    html {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--bg-start), var(--bg-mid), var(--bg-end));
+      background-attachment: fixed;
+      color: var(--text-primary);
+      overflow-x: hidden;
+    }
+
+    /* =========================================================
+       ANIMATED BACKGROUND ORBS
+    ========================================================= */
+    .bg-orbs {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.18;
+      animation: orbFloat 12s ease-in-out infinite;
+    }
+
+    .bg-orb:nth-child(1) {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, #ff7a18, transparent);
+      top: -150px; left: -100px;
+      animation-delay: 0s;
+    }
+
+    .bg-orb:nth-child(2) {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, #ff3d81, transparent);
+      top: 40%; right: -200px;
+      animation-delay: -4s;
+    }
+
+    .bg-orb:nth-child(3) {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, #7b2fff, transparent);
+      bottom: -100px; left: 30%;
+      animation-delay: -8s;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-40px) scale(1.08); }
+    }
+
+    /* =========================================================
+       LAYOUT WRAPPER
+    ========================================================= */
+    #app {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+    }
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+    .header {
+      padding: 28px 32px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* LOGO */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent-grad-135);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(255, 122, 24, 0.45);
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+
+    .logo-text span.play {
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo-text span.tv {
+      color: var(--text-primary);
+    }
+
+    .logo-subtitle {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .header-badge {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-badge span {
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* =========================================================
+       HERO SECTION
+    ========================================================= */
+    .hero {
+      padding: 36px 32px 8px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 .gradient-text {
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      font-weight: 400;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       CATEGORY TABS
+    ========================================================= */
+    .tabs-wrapper {
+      padding: 28px 32px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--tab-radius);
+      padding: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+      backdrop-filter: blur(16px);
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .tab {
+      padding: 9px 20px;
+      border-radius: var(--tab-radius);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      color: var(--text-secondary);
+      background: transparent;
+      transition: all var(--transition);
+      white-space: nowrap;
+      outline: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tab::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent-grad);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .tab span { position: relative; z-index: 1; }
+
+    .tab:hover {
+      color: var(--text-primary);
+      border-color: rgba(255,122,24,0.3);
+    }
+
+    .tab:hover::before { opacity: 0.15; }
+
+    .tab.active {
+      background: var(--accent-grad-135);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(255,122,24,0.4);
+      border-color: transparent;
+    }
+
+    .tab.active::before { opacity: 0; }
+
+    .tab:focus-visible,
+    .tab.focused {
+      outline: none;
+      box-shadow: var(--focus-glow);
+    }
+
+    .tab.active.focused {
+      box-shadow: 0 4px 18px rgba(255,122,24,0.4), var(--focus-glow);
+    }
+
+    /* =========================================================
+       APPS COUNT
+    ========================================================= */
+    .apps-count {
+      text-align: center;
+      padding: 20px 32px 4px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    .apps-count strong {
+      color: var(--accent-orange);
+    }
+
+    /* =========================================================
+       GRID
+    ========================================================= */
+    .grid-container {
+      padding: 16px 32px 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* =========================================================
+       APP CARD
+    ========================================================= */
+    .app-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--card-radius);
+      padding: 22px 20px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      cursor: pointer;
+      transition: all var(--transition);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent-grad-135);
+      opacity: 0;
+      transition: opacity var(--transition);
+      pointer-events: none;
+    }
+
+    .app-card:hover {
+      transform: translateY(-5px) scale(1.015);
+      border-color: rgba(255,122,24,0.35);
+      box-shadow:
+        0 12px 40px rgba(0,0,0,0.4),
+        0 0 0 1px rgba(255,122,24,0.15),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    .app-card:hover::before { opacity: 0.06; }
+
+    .app-card.focused,
+    .app-card:focus-visible {
+      outline: none;
+      transform: translateY(-5px) scale(1.015);
+      border-color: var(--accent-orange);
+      box-shadow:
+        0 12px 40px rgba(0,0,0,0.4),
+        var(--focus-glow),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    .app-card.focused::before { opacity: 0.08; }
+
+    /* Card top row */
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    /* Icon */
+    .app-icon-wrap {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(255,122,24,0.2), rgba(255,61,129,0.2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+
+    .app-icon-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .app-card:hover .app-icon-wrap img {
+      transform: scale(1.08);
+    }
+
+    .icon-fallback {
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-transform: uppercase;
+      display: none;
+    }
+
+    /* App info */
+    .app-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .app-name {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .app-platform {
+      font-size: 0.73rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Badge row */
+    .card-badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .badge {
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+
+    .badge-type {
+      background: rgba(255,122,24,0.12);
+      color: var(--accent-orange);
+      border: 1px solid rgba(255,122,24,0.25);
+    }
+
+    .badge-version {
+      background: rgba(255,255,255,0.06);
+      color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Buttons */
+    .card-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all var(--transition);
+      outline: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.15);
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    .btn:hover::after,
+    .btn:focus-visible::after,
+    .btn.focused::after {
+      opacity: 1;
+    }
+
+    /* Primary button */
+    .btn-primary {
+      background: var(--accent-grad-135);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(255,122,24,0.35);
+    }
+
+    .btn-primary:hover,
+    .btn-primary.focused {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(255,122,24,0.5);
+    }
+
+    .btn-primary:active { transform: translateY(0); }
+
+    /* Secondary button */
+    .btn-secondary {
+      background: var(--glass-bg);
+      color: var(--text-primary);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary.focused {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(255,122,24,0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn:focus-visible {
+      box-shadow: var(--focus-glow);
+    }
+
+    /* =========================================================
+       LOADING SPINNER
+    ========================================================= */
+    .loading-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      gap: 24px;
+    }
+
+    .spinner {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.08);
+      border-top-color: var(--accent-orange);
+      border-right-color: var(--accent-pink);
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .loading-dots::after {
+      content: '';
+      animation: dots 1.5s steps(4, end) infinite;
+    }
+
+    @keyframes dots {
+      0%   { content: ''; }
+      25%  { content: '.'; }
+      50%  { content: '..'; }
+      75%  { content: '...'; }
+      100% { content: ''; }
+    }
+
+    /* =========================================================
+       ERROR STATE
+    ========================================================= */
+    .error-wrapper {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 55vh;
+      gap: 20px;
+      text-align: center;
+      padding: 32px;
+    }
+
+    .error-icon {
+      font-size: 3.5rem;
+      filter: grayscale(0.2);
+    }
+
+    .error-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .error-msg {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      max-width: 380px;
+      line-height: 1.6;
+    }
+
+    .btn-retry {
+      margin-top: 8px;
+      padding: 12px 32px;
+      background: var(--accent-grad-135);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all var(--transition);
+      box-shadow: 0 4px 18px rgba(255,122,24,0.4);
+      outline: none;
+    }
+
+    .btn-retry:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255,122,24,0.55);
+    }
+
+    .btn-retry:focus-visible {
+      box-shadow: var(--focus-glow);
+    }
+
+    /* =========================================================
+       EMPTY STATE
+    ========================================================= */
+    .empty-wrapper {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 40vh;
+      gap: 14px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .empty-icon { font-size: 3rem; }
+
+    .empty-text {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    .footer {
+      text-align: center;
+      padding: 28px 32px 36px;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer strong {
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* =========================================================
+       SCROLLBAR CUSTOM
+    ========================================================= */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--accent-orange), var(--accent-pink));
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover { opacity: 0.8; }
+
+    /* =========================================================
+       CARD ENTRY ANIMATION
+    ========================================================= */
+    @keyframes cardFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .app-card {
+      animation: cardFadeIn 0.4s ease forwards;
+    }
+
+    .app-card:nth-child(1)  { animation-delay: 0.02s; }
+    .app-card:nth-child(2)  { animation-delay: 0.04s; }
+    .app-card:nth-child(3)  { animation-delay: 0.06s; }
+    .app-card:nth-child(4)  { animation-delay: 0.08s; }
+    .app-card:nth-child(5)  { animation-delay: 0.10s; }
+    .app-card:nth-child(6)  { animation-delay: 0.12s; }
+    .app-card:nth-child(7)  { animation-delay: 0.14s; }
+    .app-card:nth-child(8)  { animation-delay: 0.16s; }
+    .app-card:nth-child(9)  { animation-delay: 0.18s; }
+    .app-card:nth-child(10) { animation-delay: 0.20s; }
+
+    /* =========================================================
+       HOVER SHINE EFFECT ON CARD
+    ========================================================= */
+    .app-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(
+        105deg,
+        transparent 40%,
+        rgba(255,255,255,0.06) 50%,
+        transparent 60%
+      );
+      transition: left 0.5s ease;
+      pointer-events: none;
+    }
+
+    .app-card:hover::after {
+      left: 150%;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+    @media (max-width: 640px) {
+      .header { padding: 20px 16px 0; }
+      .hero { padding: 24px 16px 8px; }
+      .tabs-wrapper { padding: 20px 16px 0; }
+      .grid-container { padding: 14px 16px 48px; gap: 14px; }
+      .apps-count { padding: 16px 16px 4px; }
+      .tab { padding: 8px 14px; font-size: 0.77rem; }
+      .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      }
+    }
+
+    @media (max-width: 400px) {
+      .grid-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Animated background -->
+<div class="bg-orbs" aria-hidden="true">
+  <div class="bg-orb"></div>
+  <div class="bg-orb"></div>
+  <div class="bg-orb"></div>
+</div>
+
+<div id="app">
+
+  <!-- HEADER -->
+  <header class="header">
+    <a class="logo" href="#" aria-label="PlayTV Store">
+      <div class="logo-icon" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="13" cy="13" r="13" fill="white" fill-opacity="0.12"/>
+          <polygon points="10,8 20,13 10,18" fill="white"/>
+        </svg>
       </div>
-      <div class="topbar-actions">
-        <button id="toggle-sound" class="top-link remote-focus" type="button" data-focusable>Som: ligado</button>
-        <button id="btn-open-admin" class="top-link admin-entry-btn" type="button" title="Acesso Administrativo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          Admin
-        </button>
+      <div>
+        <div class="logo-text">
+          <span class="play">play</span><span style="color:rgba(255,255,255,0.4)">▶</span><span class="tv">tv</span>
+        </div>
+        <div class="logo-subtitle">Store</div>
       </div>
+    </a>
+    <div class="header-badge" id="headerBadge">
+      <span id="totalAppsCount">0</span> apps disponíveis
     </div>
   </header>
 
-  <!-- STORE -->
-  <main class="container simple-store" id="main">
-    <div id="store-sections">
-      <div class="store-loading">
-        <div class="loading-spinner"></div>
-        <p>Carregando apps…</p>
-      </div>
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <h1 id="heroTitle">
+      Sua central de<br/>
+      <span class="gradient-text">apps para TV</span>
+    </h1>
+    <p>Baixe os melhores players IPTV, utilitários e jogos para Android TV, Box, iPhone e PC.</p>
+  </section>
+
+  <!-- CATEGORY TABS -->
+  <nav class="tabs-wrapper" aria-label="Filtro por categoria">
+    <div class="tabs" role="tablist" id="tabsContainer">
+      <button class="tab active focused" data-cat="all" role="tab" aria-selected="true" id="tab-all" tabindex="0">
+        <span>🌐 Todos</span>
+      </button>
+      <button class="tab" data-cat="android" role="tab" aria-selected="false" id="tab-android" tabindex="-1">
+        <span>📺 Android TV/Box</span>
+      </button>
+      <button class="tab" data-cat="ios" role="tab" aria-selected="false" id="tab-ios" tabindex="-1">
+        <span>🍎 iPhone/iPad</span>
+      </button>
+      <button class="tab" data-cat="pc" role="tab" aria-selected="false" id="tab-pc" tabindex="-1">
+        <span>💻 Computador</span>
+      </button>
+      <button class="tab" data-cat="utilidades" role="tab" aria-selected="false" id="tab-utilidades" tabindex="-1">
+        <span>🔧 Utilidades</span>
+      </button>
+      <button class="tab" data-cat="games" role="tab" aria-selected="false" id="tab-games" tabindex="-1">
+        <span>🎮 Games</span>
+      </button>
     </div>
-  </main>
+  </nav>
 
-  <!-- TEMPLATE CARD -->
-  <template id="app-card-template">
-    <article class="app-card">
-      <div class="card-topline">
-        <div class="thumb-box">
-          <img class="app-thumb" src="" alt="" width="72" height="72" loading="lazy">
-          <div class="thumb-fallback">APP</div>
-        </div>
-        <div class="device-icons"></div>
-      </div>
-      <div class="app-info">
-        <h3 class="app-name"></h3>
-        <p class="app-platform"></p>
-        <p class="app-type"></p>
-      </div>
-      <div class="app-actions"></div>
-    </article>
-  </template>
+  <!-- APPS COUNT -->
+  <p class="apps-count" id="appsCount" aria-live="polite"></p>
 
-  <!-- MODAL DE LOGIN -->
-  <div id="login-modal" class="login-overlay" role="dialog" aria-modal="true" aria-labelledby="login-title">
-    <div class="login-card">
-      <div class="login-header">
-        <div class="login-logo">
-          <svg viewBox="0 0 24 24" fill="none" width="32" height="32"><circle cx="12" cy="8" r="4" fill="currentColor" opacity=".9"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
-        </div>
-        <h2 id="login-title" class="login-title">Acesso Admin</h2>
-        <p class="login-subtitle">PlayTV Store</p>
-      </div>
-
-      <form id="login-form" class="login-form" novalidate>
-        <div class="login-field">
-          <label for="login-user">Usuário</label>
-          <input type="text" id="login-user" name="username" autocomplete="username"
-                 placeholder="Digite o usuário" required />
-        </div>
-        <div class="login-field">
-          <label for="login-pass">Senha</label>
-          <div class="pass-wrap">
-            <input type="password" id="login-pass" name="password" autocomplete="current-password"
-                   placeholder="Digite a senha" required />
-            <button type="button" id="toggle-pass" class="pass-toggle" title="Mostrar/ocultar senha" aria-label="Mostrar senha">
-              <svg id="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-            </button>
-          </div>
-        </div>
-        <label class="remember-label">
-          <input type="checkbox" id="login-remember" name="remember" />
-          <span class="remember-box"></span>
-          Lembrar senha neste dispositivo
-        </label>
-        <div id="login-error" class="login-error" hidden></div>
-        <button type="submit" id="login-submit" class="login-btn">
-          <span id="login-btn-text">Entrar</span>
-          <span id="login-spinner" class="btn-spinner" hidden></span>
-        </button>
-      </form>
-      <button type="button" id="login-close" class="login-close" aria-label="Fechar">&times;</button>
-    </div>
+  <!-- LOADING STATE -->
+  <div class="loading-wrapper" id="loadingWrapper" aria-live="polite" aria-label="Carregando apps">
+    <div class="spinner" role="status" aria-label="Carregando"></div>
+    <p class="loading-text loading-dots">Carregando apps</p>
   </div>
 
-  <script src="js/auth.js"></script>
-  <script src="js/store.js"></script>
+  <!-- ERROR STATE -->
+  <div class="error-wrapper" id="errorWrapper" role="alert" aria-live="assertive">
+    <div class="error-icon">⚠️</div>
+    <p class="error-title">Não foi possível carregar os apps</p>
+    <p class="error-msg" id="errorMsg">Erro ao carregar. Verifique a URL do Apps Script.</p>
+    <button class="btn-retry" id="retryBtn" tabindex="0">🔄 Tentar novamente</button>
+  </div>
+
+  <!-- EMPTY STATE -->
+  <div class="empty-wrapper" id="emptyWrapper" role="status">
+    <div class="empty-icon">🔍</div>
+    <p class="empty-text">Nenhum app encontrado nessa categoria.</p>
+  </div>
+
+  <!-- APPS GRID -->
+  <main class="grid-container" id="appsGrid" role="main" aria-label="Lista de apps"></main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    &copy; 2026 <strong>PlayTV Store</strong> — Todos os direitos reservados.
+    <br/>Gerenciado via Google Sheets + Apps Script.
+  </footer>
+
+</div><!-- /#app -->
+
+<script>
+  'use strict';
+
+  // ============================================================
+  //  CONFIGURATION
+  // ============================================================
+  const APPS_SCRIPT_URL = 'COLE_AQUI_A_URL_DO_APPS_SCRIPT';
+
+  // ============================================================
+  //  AUDIO FEEDBACK (subtle beep via AudioContext)
+  // ============================================================
+  let audioCtx = null;
+
+  function beep(freq = 520, duration = 55, vol = 0.04) {
+    try {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc  = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.type            = 'sine';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration / 1000);
+      osc.start(audioCtx.currentTime);
+      osc.stop(audioCtx.currentTime + duration / 1000 + 0.05);
+    } catch (_) { /* silently ignore audio errors */ }
+  }
+
+  // ============================================================
+  //  STATE
+  // ============================================================
+  let allApps       = [];
+  let activeCategory= 'all';
+  let focusIndex    = 0;   // index in current focusables array
+  let focusables    = [];  // all keyboard-navigable elements currently visible
+
+  // ============================================================
+  //  DOM REFS
+  // ============================================================
+  const loadingWrapper = document.getElementById('loadingWrapper');
+  const errorWrapper   = document.getElementById('errorWrapper');
+  const emptyWrapper   = document.getElementById('emptyWrapper');
+  const appsGrid       = document.getElementById('appsGrid');
+  const appsCount      = document.getElementById('appsCount');
+  const retryBtn       = document.getElementById('retryBtn');
+  const totalAppsCount = document.getElementById('totalAppsCount');
+  const tabsContainer  = document.getElementById('tabsContainer');
+  const tabButtons     = Array.from(tabsContainer.querySelectorAll('.tab'));
+
+  // ============================================================
+  //  SHOW / HIDE STATES
+  // ============================================================
+  function showLoading() {
+    loadingWrapper.style.display = 'flex';
+    errorWrapper.style.display   = 'none';
+    emptyWrapper.style.display   = 'none';
+    appsGrid.innerHTML           = '';
+    appsCount.textContent        = '';
+  }
+
+  function showError(msg) {
+    loadingWrapper.style.display = 'none';
+    errorWrapper.style.display   = 'flex';
+    emptyWrapper.style.display   = 'none';
+    appsGrid.innerHTML           = '';
+    appsCount.textContent        = '';
+    document.getElementById('errorMsg').textContent = msg || 'Erro ao carregar. Verifique a URL do Apps Script.';
+    rebuildFocusables();
+  }
+
+  function showEmpty() {
+    emptyWrapper.style.display   = 'flex';
+    appsGrid.innerHTML           = '';
+    appsCount.textContent        = '';
+  }
+
+  function hideAll() {
+    loadingWrapper.style.display = 'none';
+    errorWrapper.style.display   = 'none';
+    emptyWrapper.style.display   = 'none';
+  }
+
+  // ============================================================
+  //  FETCH APPS DATA
+  // ============================================================
+  async function loadApps() {
+    showLoading();
+
+    if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'COLE_AQUI_A_URL_DO_APPS_SCRIPT') {
+      showError('URL do Apps Script não configurada. Edite a constante APPS_SCRIPT_URL no início do script.');
+      return;
+    }
+
+    try {
+      const res = await fetch(APPS_SCRIPT_URL, { cache: 'no-cache' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+
+      const data = await res.json();
+      if (!Array.isArray(data)) throw new Error('Resposta inválida do servidor (esperado array JSON).');
+
+      allApps = data;
+      totalAppsCount.textContent = allApps.length;
+      renderApps(activeCategory);
+
+    } catch (err) {
+      console.error('[PlayTV Store] Erro ao carregar apps:', err);
+      showError('Erro ao carregar. Verifique a URL do Apps Script.\n' + err.message);
+    }
+  }
+
+  // ============================================================
+  //  RENDER APPS
+  // ============================================================
+  function renderApps(category) {
+    activeCategory = category;
+
+    const filtered = category === 'all'
+      ? allApps
+      : allApps.filter(app => (app.categoria || '').toLowerCase() === category.toLowerCase());
+
+    hideAll();
+
+    if (filtered.length === 0) {
+      showEmpty();
+      rebuildFocusables();
+      return;
+    }
+
+    const label = category === 'all' ? 'todos os apps' : `categoria "${category}"`;
+    appsCount.textContent = '';
+    appsCount.innerHTML   = `Exibindo <strong>${filtered.length}</strong> app${filtered.length !== 1 ? 's' : ''} em ${label}`;
+
+    appsGrid.innerHTML = filtered.map((app, i) => buildCardHTML(app, i)).join('');
+
+    // Add icon error fallback after DOM insertion
+    appsGrid.querySelectorAll('.app-icon-img').forEach(img => {
+      img.addEventListener('error', handleIconError, { once: true });
+    });
+
+    rebuildFocusables();
+
+    // Re-focus first card if we had a tab selected
+    const firstCard = appsGrid.querySelector('.app-card');
+    if (firstCard) {
+      focusIndex = indexOfFocusable(firstCard);
+      if (focusIndex < 0) focusIndex = 0;
+      applyFocus(focusIndex, false);
+    }
+  }
+
+  function buildCardHTML(app, i) {
+    const name     = escapeHtml(app.nome || 'App sem nome');
+    const platform = escapeHtml(app.plataforma || '');
+    const tipo     = escapeHtml(app.tipo || '');
+    const versao   = escapeHtml(app.versao || '');
+    const icon     = app.icone ? escapeHtml(app.icone) : '';
+    const firstLetter = (app.nome || 'A').charAt(0).toUpperCase();
+
+    const btn1 = app.btn1_label && app.btn1_url
+      ? `<a href="${escapeHtml(app.btn1_url)}" target="_blank" rel="noopener noreferrer"
+           class="btn btn-primary focusable" tabindex="-1"
+           aria-label="${escapeHtml(app.btn1_label)} — ${name}">
+           ${escapeHtml(app.btn1_label)}
+         </a>`
+      : '';
+
+    const btn2 = app.btn2_label && app.btn2_url
+      ? `<a href="${escapeHtml(app.btn2_url)}" target="_blank" rel="noopener noreferrer"
+           class="btn btn-secondary focusable" tabindex="-1"
+           aria-label="${escapeHtml(app.btn2_label)} — ${name}">
+           ${escapeHtml(app.btn2_label)}
+         </a>`
+      : '';
+
+    return `
+      <article class="app-card focusable" tabindex="-1"
+               role="article" aria-label="${name}"
+               data-card-index="${i}">
+        <div class="card-top">
+          <div class="app-icon-wrap" aria-hidden="true">
+            ${icon
+              ? `<img src="${icon}" alt="${name}" class="app-icon-img" loading="lazy" />`
+              : ``}
+            <span class="icon-fallback" style="${icon ? 'display:none' : 'display:flex'}" aria-hidden="true">${firstLetter}</span>
+          </div>
+          <div class="app-info">
+            <div class="app-name" title="${name}">${name}</div>
+            <div class="app-platform">${platform}</div>
+          </div>
+        </div>
+        <div class="card-badges">
+          ${tipo    ? `<span class="badge badge-type">${escapeHtml(tipo)}</span>` : ''}
+          ${versao  ? `<span class="badge badge-version">${escapeHtml(versao)}</span>` : ''}
+        </div>
+        <div class="card-buttons">
+          ${btn1}
+          ${btn2}
+        </div>
+      </article>
+    `;
+  }
+
+  function handleIconError(e) {
+    const img  = e.target;
+    const wrap = img.closest('.app-icon-wrap');
+    if (!wrap) return;
+    img.style.display = 'none';
+    const fallback = wrap.querySelector('.icon-fallback');
+    if (fallback) fallback.style.display = 'flex';
+  }
+
+  // ============================================================
+  //  ESCAPE HTML
+  // ============================================================
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  // ============================================================
+  //  CATEGORY TABS
+  // ============================================================
+  function activateTab(cat) {
+    tabButtons.forEach(btn => {
+      const isActive = btn.dataset.cat === cat;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      btn.tabIndex = isActive ? 0 : -1;
+    });
+    renderApps(cat);
+  }
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      beep(440, 50, 0.03);
+      activateTab(btn.dataset.cat);
+    });
+  });
+
+  // ============================================================
+  //  D-PAD / KEYBOARD NAVIGATION
+  // ============================================================
+
+  /**
+   * Rebuild the list of all currently focusable elements in DOM order.
+   * Tabs first, then cards/buttons.
+   */
+  function rebuildFocusables() {
+    focusables = Array.from(
+      document.querySelectorAll('.tab, .app-card, .btn, .btn-retry, .focusable')
+    ).filter(el => {
+      const rect = el.getBoundingClientRect();
+      return el.offsetParent !== null || rect.width > 0 || rect.height > 0;
+    });
+
+    // Deduplicate (btn-retry has class btn and btn-retry)
+    focusables = [...new Set(focusables)];
+  }
+
+  function indexOfFocusable(el) {
+    return focusables.indexOf(el);
+  }
+
+  /**
+   * Apply visual focus to element at given index.
+   * @param {number} idx - index into focusables
+   * @param {boolean} scrollIntoView
+   */
+  function applyFocus(idx, scrollIntoView = true) {
+    if (focusables.length === 0) return;
+    idx = Math.max(0, Math.min(idx, focusables.length - 1));
+
+    // Remove focus from previous
+    focusables.forEach(el => {
+      el.classList.remove('focused');
+      el.tabIndex = -1;
+    });
+
+    const target = focusables[idx];
+    target.classList.add('focused');
+    target.tabIndex = 0;
+    focusIndex = idx;
+
+    if (scrollIntoView) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+    }
+  }
+
+  /**
+   * Coordinate-based scoring: find best focusable element in a given direction.
+   * Uses center-point of each element's bounding rect.
+   */
+  function findBestInDirection(direction) {
+    if (focusables.length === 0) return -1;
+
+    const current = focusables[focusIndex];
+    if (!current) return 0;
+
+    const cr   = current.getBoundingClientRect();
+    const cx   = cr.left + cr.width  / 2;
+    const cy   = cr.top  + cr.height / 2;
+
+    let bestIdx   = -1;
+    let bestScore = Infinity;
+
+    focusables.forEach((el, i) => {
+      if (i === focusIndex) return;
+      const r  = el.getBoundingClientRect();
+      const ex = r.left + r.width  / 2;
+      const ey = r.top  + r.height / 2;
+      const dx = ex - cx;
+      const dy = ey - cy;
+
+      // Filter by direction cone (primary axis > 0, secondary axis within ratio)
+      let inCone = false;
+      let primaryDist = 0;
+      let crossDist   = 0;
+
+      switch (direction) {
+        case 'right': inCone = dx > 4;  primaryDist = dx; crossDist = Math.abs(dy); break;
+        case 'left':  inCone = dx < -4; primaryDist = -dx; crossDist = Math.abs(dy); break;
+        case 'down':  inCone = dy > 4;  primaryDist = dy; crossDist = Math.abs(dx); break;
+        case 'up':    inCone = dy < -4; primaryDist = -dy; crossDist = Math.abs(dx); break;
+      }
+
+      if (!inCone) return;
+
+      // Score: penalise cross-axis distance heavily
+      const score = primaryDist + crossDist * 3.5;
+
+      if (score < bestScore) {
+        bestScore = score;
+        bestIdx   = i;
+      }
+    });
+
+    return bestIdx;
+  }
+
+  document.addEventListener('keydown', (e) => {
+    let handled = false;
+
+    switch (e.key) {
+      case 'ArrowRight': {
+        const idx = findBestInDirection('right');
+        if (idx >= 0) { applyFocus(idx); beep(500, 50, 0.035); }
+        handled = true;
+        break;
+      }
+      case 'ArrowLeft': {
+        const idx = findBestInDirection('left');
+        if (idx >= 0) { applyFocus(idx); beep(500, 50, 0.035); }
+        handled = true;
+        break;
+      }
+      case 'ArrowDown': {
+        const idx = findBestInDirection('down');
+        if (idx >= 0) { applyFocus(idx); beep(500, 50, 0.035); }
+        handled = true;
+        break;
+      }
+      case 'ArrowUp': {
+        const idx = findBestInDirection('up');
+        if (idx >= 0) { applyFocus(idx); beep(500, 50, 0.035); }
+        handled = true;
+        break;
+      }
+      case 'Enter':
+      case ' ': {
+        const focused = focusables[focusIndex];
+        if (focused) {
+          beep(620, 70, 0.05);
+          focused.click();
+        }
+        handled = e.key === ' '; // only prevent space default
+        break;
+      }
+    }
+
+    if (handled) e.preventDefault();
+  });
+
+  // Mouse click updates focusIndex
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('.focusable, .tab, .btn, .btn-retry');
+    if (!target) return;
+    rebuildFocusables();
+    const idx = indexOfFocusable(target);
+    if (idx >= 0) {
+      applyFocus(idx, false);
+    }
+  });
+
+  // Touch / pointer: update focusIndex on focus event too
+  document.addEventListener('focusin', (e) => {
+    const target = e.target;
+    if (!target) return;
+    const idx = indexOfFocusable(target);
+    if (idx >= 0) focusIndex = idx;
+  });
+
+  // ============================================================
+  //  RETRY BUTTON
+  // ============================================================
+  retryBtn.addEventListener('click', () => {
+    beep(400, 60, 0.04);
+    loadApps();
+  });
+
+  // ============================================================
+  //  INIT — set initial focus on "Todos" tab
+  // ============================================================
+  function init() {
+    rebuildFocusables();
+    const allTabIdx = focusables.indexOf(document.getElementById('tab-all'));
+    if (allTabIdx >= 0) applyFocus(allTabIdx, false);
+
+    loadApps();
+  }
+
+  // Start
+  init();
+</script>
 </body>
 </html>
