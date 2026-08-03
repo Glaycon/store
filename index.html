@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PlayTV Store — Apps para TV Box, Smart TV e mais</title>
-  <meta name="description" content="Baixe os melhores apps para Android TV, TV Box, iPhone, iPad e Computador. PlayTV Extreme, XCIPTV, Smarters e muito mais." />
+  <title>PlayTV Store — Apps para TV Box, Smart TV, iOS e PC</title>
+  <meta name="description" content="Baixe os melhores apps para Android TV, TV Box, iPhone, iPad e Computador." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -24,9 +24,8 @@
       --text-secondary: #9a8bb5;
       --text-muted:     #6b5d85;
       --card-radius:    18px;
-      --tab-radius:     50px;
-      --transition:     0.22s cubic-bezier(0.4, 0, 0.2, 1);
-      --focus-glow:     0 0 0 3px rgba(255, 122, 24, 0.55);
+      --transition:     0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --focus-glow:     0 0 0 4px rgba(255, 122, 24, 0.65), 0 8px 30px rgba(255, 122, 24, 0.4);
     }
     html { font-family: 'Inter', system-ui, sans-serif; font-size: 16px; scroll-behavior: smooth; }
     body { min-height: 100vh; background: linear-gradient(135deg, var(--bg-start), var(--bg-mid), var(--bg-end)); background-attachment: fixed; color: var(--text-primary); overflow-x: hidden; }
@@ -38,36 +37,32 @@
     .bg-orb:nth-child(3) { width: 400px; height: 400px; background: radial-gradient(circle, #7b2fff, transparent); bottom: -100px; left: 30%; animation-delay: -8s; }
     @keyframes orbFloat { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-40px) scale(1.08); } }
 
-    #app { position: relative; z-index: 1; min-height: 100vh; }
-    .header { padding: 28px 32px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    #app { position: relative; z-index: 1; min-height: 100vh; padding-bottom: 50px; }
+    
+    .header { padding: 24px 32px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; max-width: 1400px; margin: 0 auto; }
     .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .logo-icon { width: 48px; height: 48px; background: var(--accent-grad-135); border-radius: 14px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(255, 122, 24, 0.45); }
-    .logo-text { font-size: 1.55rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1; }
+    .logo-text { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1; }
     .logo-text span.play { background: var(--accent-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .logo-text span.tv { color: var(--text-primary); }
     .logo-subtitle { font-size: 0.7rem; font-weight: 500; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 2px; }
-    .header-badge { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 50px; padding: 8px 18px; font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); backdrop-filter: blur(12px); }
-    .header-badge span { background: var(--accent-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-    .hero { padding: 36px 32px 8px; text-align: center; }
-    .hero h1 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; letter-spacing: -1px; line-height: 1.15; margin-bottom: 12px; }
+    .hero { padding: 28px 32px 12px; text-align: center; }
+    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; letter-spacing: -1px; line-height: 1.15; margin-bottom: 8px; }
     .hero h1 .gradient-text { background: var(--accent-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero p { color: var(--text-secondary); font-size: 1.05rem; font-weight: 400; max-width: 520px; margin: 0 auto; line-height: 1.6; }
+    .hero p { color: var(--text-secondary); font-size: 1rem; font-weight: 400; max-width: 540px; margin: 0 auto; line-height: 1.5; }
 
-    .tabs-wrapper { padding: 28px 32px 0; display: flex; justify-content: center; }
-    .tabs { display: flex; gap: 8px; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); border-radius: var(--tab-radius); padding: 6px; flex-wrap: wrap; justify-content: center; backdrop-filter: blur(16px); max-width: 900px; width: 100%; }
-    .tab { padding: 9px 20px; border-radius: var(--tab-radius); font-size: 0.82rem; font-weight: 600; cursor: pointer; border: 1px solid transparent; color: var(--text-secondary); background: transparent; transition: all var(--transition); white-space: nowrap; outline: none; }
-    .tab:hover { color: var(--text-primary); border-color: rgba(255,122,24,0.3); }
-    .tab.active { background: var(--accent-grad-135); color: #fff; box-shadow: 0 4px 18px rgba(255,122,24,0.4); border-color: transparent; }
-    .tab:focus-visible, .tab.focused { outline: none; box-shadow: var(--focus-glow); }
+    /* SECTIONS */
+    .section-container { max-width: 1400px; margin: 0 auto; padding: 24px 32px 0; }
+    .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 10px; }
+    .section-title { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.3px; display: flex; align-items: center; gap: 10px; color: var(--text-primary); }
+    .section-title span.icon { font-size: 1.4rem; }
+    .section-tag { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; padding: 3px 10px; border-radius: 50px; background: rgba(255, 122, 24, 0.15); color: var(--accent-orange); border: 1px solid rgba(255, 122, 24, 0.3); }
 
-    .apps-count { text-align: center; padding: 20px 32px 4px; font-size: 0.82rem; color: var(--text-muted); font-weight: 500; }
-    .apps-count strong { color: var(--accent-orange); }
+    .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
 
-    .grid-container { padding: 16px 32px 60px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto; }
-
-    .app-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--card-radius); padding: 22px 20px 18px; display: flex; flex-direction: column; gap: 14px; cursor: pointer; transition: all var(--transition); backdrop-filter: blur(16px); position: relative; overflow: hidden; }
-    .app-card:hover, .app-card.focused, .app-card:focus-visible { transform: translateY(-5px) scale(1.015); border-color: var(--accent-orange); box-shadow: 0 12px 40px rgba(0,0,0,0.4), var(--focus-glow); outline: none; }
+    .app-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--card-radius); padding: 20px; display: flex; flex-direction: column; gap: 14px; cursor: pointer; transition: all var(--transition); backdrop-filter: blur(16px); position: relative; overflow: hidden; }
+    .app-card:hover, .app-card.focused { transform: translateY(-4px) scale(1.02); border-color: var(--accent-orange); box-shadow: var(--focus-glow); outline: none; z-index: 2; }
 
     .card-top { display: flex; align-items: flex-start; gap: 14px; }
     .app-icon-wrap { width: 64px; height: 64px; border-radius: 16px; overflow: hidden; flex-shrink: 0; background: linear-gradient(135deg, rgba(255,122,24,0.2), rgba(255,61,129,0.2)); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.08); }
@@ -84,21 +79,20 @@
     .badge-version { background: rgba(255,255,255,0.06); color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1); }
 
     .card-buttons { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
-    .btn { display: block; width: 100%; padding: 10px 14px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; text-align: center; text-decoration: none; cursor: pointer; border: none; transition: all var(--transition); outline: none; }
+    .btn { display: block; width: 100%; padding: 11px 14px; border-radius: 12px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; text-align: center; text-decoration: none; cursor: pointer; border: none; transition: all var(--transition); outline: none; }
     .btn-primary { background: var(--accent-grad-135); color: #fff; box-shadow: 0 4px 16px rgba(255,122,24,0.35); }
-    .btn-primary:hover, .btn-primary.focused { transform: translateY(-1px); box-shadow: 0 6px 22px rgba(255,122,24,0.5); }
+    .btn-primary:hover, .btn-primary.focused { transform: translateY(-1px); box-shadow: 0 6px 22px rgba(255,122,24,0.5), var(--focus-glow); outline: none; }
     .btn-secondary { background: var(--glass-bg); color: var(--text-primary); border: 1px solid var(--glass-border); }
-    .btn-secondary:hover, .btn-secondary.focused { background: rgba(255,255,255,0.09); border-color: rgba(255,122,24,0.4); transform: translateY(-1px); }
+    .btn-secondary:hover, .btn-secondary.focused { background: rgba(255,255,255,0.12); border-color: var(--accent-orange); transform: translateY(-1px); box-shadow: var(--focus-glow); outline: none; }
 
-    .footer { text-align: center; padding: 28px 32px 36px; color: var(--text-muted); font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer { text-align: center; padding: 36px 32px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px; }
     .footer strong { background: var(--accent-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
     @media (max-width: 640px) {
-      .header { padding: 20px 16px 0; }
-      .hero { padding: 24px 16px 8px; }
-      .tabs-wrapper { padding: 20px 16px 0; }
-      .grid-container { padding: 14px 16px 48px; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
-      .tab { padding: 8px 14px; font-size: 0.77rem; }
+      .header { padding: 18px 16px 0; }
+      .hero { padding: 20px 16px 8px; }
+      .section-container { padding: 18px 16px 0; }
+      .grid-container { gap: 14px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
     }
   </style>
 </head>
@@ -124,30 +118,37 @@
         <div class="logo-subtitle">Store</div>
       </div>
     </a>
-    <div class="header-badge">
-      <span id="totalAppsCount">33</span> apps disponíveis
-    </div>
   </header>
 
   <section class="hero">
     <h1>Sua central de<br/><span class="gradient-text">apps para TV</span></h1>
-    <p>Baixe os melhores players IPTV, utilitários e jogos para Android TV, Box, iPhone e PC.</p>
+    <p>Navegue com o controle remoto e baixe os melhores aplicativos para sua Smart TV, TV Box, iPhone ou PC.</p>
   </section>
 
-  <nav class="tabs-wrapper">
-    <div class="tabs" role="tablist" id="tabsContainer">
-      <button class="tab active focused" data-cat="all" role="tab" id="tab-all" tabindex="0"><span>🌐 Todos</span></button>
-      <button class="tab" data-cat="android" role="tab" id="tab-android" tabindex="-1"><span>📺 Android TV/Box</span></button>
-      <button class="tab" data-cat="ios" role="tab" id="tab-ios" tabindex="-1"><span>🍎 iPhone/iPad</span></button>
-      <button class="tab" data-cat="pc" role="tab" id="tab-pc" tabindex="-1"><span>💻 Computador</span></button>
-      <button class="tab" data-cat="utilidades" role="tab" id="tab-utilidades" tabindex="-1"><span>🔧 Utilidades</span></button>
-      <button class="tab" data-cat="games" role="tab" id="tab-games" tabindex="-1"><span>🎮 Games</span></button>
+  <!-- SEÇÃO 1: ANDROID TV / BOX (SEUS APPS + FIVETV) -->
+  <div class="section-container">
+    <div class="section-header">
+      <h2 class="section-title"><span class="icon">📺</span> Android TV & Box</h2>
+      <span class="section-tag">Destaques</span>
     </div>
-  </nav>
+    <div class="grid-container" id="grid-android"></div>
+  </div>
 
-  <p class="apps-count" id="appsCount"></p>
+  <!-- SEÇÃO 2: COMPUTADOR -->
+  <div class="section-container">
+    <div class="section-header">
+      <h2 class="section-title"><span class="icon">💻</span> Computador (PC)</h2>
+    </div>
+    <div class="grid-container" id="grid-pc"></div>
+  </div>
 
-  <main class="grid-container" id="appsGrid" role="main"></main>
+  <!-- SEÇÃO 3: IPHONE & IPAD -->
+  <div class="section-container">
+    <div class="section-header">
+      <h2 class="section-title"><span class="icon">🍎</span> iPhone & iPad (iOS)</h2>
+    </div>
+    <div class="grid-container" id="grid-ios"></div>
+  </div>
 
   <footer class="footer">
     &copy; 2026 <strong>PlayTV Store</strong> — Todos os direitos reservados.
@@ -158,44 +159,125 @@
   'use strict';
 
   // ------------------------------------------------------------
-  // LISTA DE APPS (DIRETO NO HTML - ZERO DELAY)
+  // SEUS APPS PRINCIPAIS E FIVETV
   // ------------------------------------------------------------
-  const allApps = [
-    { name: "PlayTV Extreme", icon: "img/extreme.png", category: "android", platform: "Android TV / Box / Celular", version: "APK 2026", type: "APK DOWNLOAD", buttons: [{ label: "DOWNLOAD APK", url: "https://app.playzxc.com/dl/PlayTV_Extreme2026.apk" }] },
-    { name: "PLAYTV UX", icon: "img/logo512.svg", category: "android", platform: "Android TV / Box / Celular", version: "APK 2026", type: "APK DOWNLOAD", buttons: [{ label: "DOWNLOAD APK", url: "https://app.playzxc.com/dl/PlayTVUX2026.apk" }] },
-    { name: "CENTRAL V3", icon: "img/centralv3.jpg", category: "android", platform: "Android TV / Box / Celular", version: "APK", type: "APK DOWNLOAD", buttons: [{ label: "DOWNLOAD APK", url: "https://fivetv5.com/api/apps/4/file" }] },
-    { name: "XCIPTV", icon: "img/xciptv.webp", category: "android", platform: "Android TV / Box / Celular", version: "6.0", type: "APK DOWNLOAD", buttons: [{ label: "DOWNLOAD APK", url: "https://app.playzxc.com/dl/Android/XCIPTV6.0_.apk" }] },
-    { name: "Smarters Player", icon: "img/smarters.png", category: "android", platform: "Android TV / Box / Celular", version: "APK", type: "APK DOWNLOAD", buttons: [{ label: "DOWNLOAD APK", url: "https://app.playzxc.com/dl/Android/SmartersPlayer.apk" }] },
-    { name: "NewHybrid", icon: "img/NewHybrid.png", category: "android", platform: "Android TV / Box / Celular", version: "1.6.9", type: "APK DOWNLOAD", buttons: [{ label: "DOWNLOAD APK", url: "https://fivetv5.com/api/apps/1/file" }] },
-    { name: "NewBraz", icon: "img/brazprocentral.png", category: "android", platform: "Android TV / Box / Celular", version: "8.1.1", type: "APK DOWNLOAD", buttons: [{ label: "DOWNLOAD APK", url: "https://fivetv5.com/api/apps/2/file" }] },
-    { name: "DreamTV", icon: "img/brazprocentral.png", category: "android", platform: "Android TV / Box / Celular", version: "APK", type: "APK DOWNLOAD", buttons: [{ label: "DOWNLOAD APK", url: "https://fivetv5.com/api/apps/3/file" }] },
-    { name: "SSIPTV", icon: "img/ssiptv.jpeg", category: "android", platform: "Android e outros", version: "APK + Web", type: "APK E WEB", buttons: [{ label: "DOWNLOAD APK", url: "https://dl.wedxc.com/download/dXBsb2Fkcy9BbmRyb2lkL1NTX0lQVFYuYXBr/h/6cb4219032d13e76114f3e03d56ed592" }, { label: "ACESSAR SITE", url: "https://app.ss-iptv.com/" }] },
-    { name: "Smarters Player Lite", icon: "img/samartersplayerlite.png", category: "ios", platform: "iPhone / iPad", version: "App Store", type: "APP STORE", buttons: [{ label: "ACESSAR", url: "https://apps.apple.com/br/app/smarters-player-lite/id1628995509" }] },
-    { name: "IPTV Smarters GSE", icon: "img/gsesmarters.jpg", category: "ios", platform: "iPhone / iPad", version: "App Store", type: "APP STORE", buttons: [{ label: "ACESSAR", url: "https://apps.apple.com/br/app/iptv-smarters-gse-tv-player/id6443493076" }] },
-    { name: "DMAC IPTV", icon: "img/dmaciptv.png", category: "ios", platform: "iPhone / iPad", version: "App Store", type: "APP STORE", buttons: [{ label: "ACESSAR", url: "https://apps.apple.com/br/app/dmac-iptv/id1524596259" }] },
-    { name: "Blink Player Pro", icon: "img/blickplayerpro.png", category: "ios", platform: "iPhone / iPad", version: "App Store", type: "APP STORE", buttons: [{ label: "ACESSAR", url: "https://apps.apple.com/br/app/blink-player-pro/id1635779666" }] },
-    { name: "Mobile Tv Hub", icon: "img/mobiletvhub.png", category: "ios", platform: "iPhone / iPad", version: "App Store", type: "APP STORE", buttons: [{ label: "ACESSAR", url: "https://apps.apple.com/br/app/mobile-tv-hub/id1500385182" }] },
-    { name: "SFVIP PLAYER", icon: "img/windows.jpg", category: "pc", platform: "Windows", version: "ZIP", type: "ZIP DOWNLOAD", buttons: [{ label: "DOWNLOAD ZIP", url: "https://app.playzxc.com/dl/Computador/SFVIP-Player-x64.zip" }] },
-    { name: "Smarters Player", icon: "img/smarters.png", category: "pc", platform: "Windows", version: ".exe", type: ".EXE DOWNLOAD", buttons: [{ label: "DOWNLOAD", url: "https://app.playzxc.com/dl/Computador/IPTVSmartersPro.exe" }] },
-    { name: "Smarters Player 32bit", icon: "img/smarters.png", category: "pc", platform: "Windows", version: "32bit", type: ".EXE DOWNLOAD", buttons: [{ label: "DOWNLOAD", url: "https://app.playzxc.com/dl/Computador/SMARTERSPC32.exe" }] },
-    { name: "Smarters Player 64bit", icon: "img/smarters.png", category: "pc", platform: "Windows", version: "64bit", type: ".EXE DOWNLOAD", buttons: [{ label: "DOWNLOAD", url: "https://app.playzxc.com/dl/Computador/SMARTERSPC64.exe" }] },
-    { name: "Purple", icon: "img/purple.webp", category: "pc", platform: "Windows", version: "MSI", type: ".MSI DOWNLOAD", buttons: [{ label: "DOWNLOAD", url: "https://app.playzxc.com/dl/Computador/Purple.msi" }] },
-    { name: "Smarters Player Web", icon: "img/smarters.png", category: "pc", platform: "Navegador", version: "Web", type: "ASSISTIR PELO NAVEGADOR", buttons: [{ label: "ACESSAR SITE", url: "http://webtv.iptvsmarters.com" }] },
-    { name: "Blink Player Web", icon: "img/blickplayerpro.png", category: "pc", platform: "Navegador", version: "Web", type: "ASSISTIR PELO NAVEGADOR", buttons: [{ label: "ACESSAR SITE", url: "http://webtv.iptvblinkplayer.com/" }] },
-    { name: "SSIPTV Web", icon: "img/ssiptv.jpeg", category: "pc", platform: "Web Player", version: "Web", type: "ASSISTIR PELO NAVEGADOR", buttons: [{ label: "ACESSAR SITE", url: "https://app.ss-iptv.com/" }] },
-    { name: "Downloader", icon: "img/downloader.png", category: "utilidades", platform: "Android TV / Box / Celular", version: "APK", type: "APK DOWNLOAD", buttons: [{ label: "DOWNLOAD APK", url: "https://dl.wedxc.com/download/dXBsb2Fkcy9BbmRyb2lkL0Rvd25sb2FkZXItYnktQUZUVm5ld3MuYXBr/h/a6e646521c8cf23ff510acf9cc05b3a2" }, { label: "ACESSAR LOJA", url: "https://play.google.com/store/apps/details?id=com.esaba.downloader" }] },
-    { name: "M7 Downloads", icon: "img/m7downloads.webp", category: "utilidades", platform: "Loja de apps Android", version: "Play Store", type: "PLAY STORE", buttons: [{ label: "ACESSAR LOJA", url: "https://play.google.com/store/apps/details?id=com.m7.downloads&hl=pt_BR&gl=US" }] },
-    { name: "App Linker", icon: "img/applinker.png", category: "utilidades", platform: "Loja de apps APKs", version: "Web", type: "ACESSAR SITE", buttons: [{ label: "ACESSAR SITE", url: "https://www.apklinker.com/" }] },
-    { name: "TRWP", icon: "img/twrp.jpeg", category: "utilidades", platform: "Team Win Recovery Project", version: "APK", type: "DOWNLOAD APK", buttons: [{ label: "DOWNLOAD APK", url: "https://dl.wedxc.com/download/dXBsb2Fkcy9BbmRyb2lkL3R3cnAuYXBr/h/5a06d42bbe4bcbf53a00d5ea8d42d25d" }] },
-    { name: "Gerenciador de Arq.", icon: "img/gerenciador_de_arquivos.webp", category: "utilidades", platform: "Gerenciador de arquivos", version: "APK", type: "DOWNLOAD APK", buttons: [{ label: "DOWNLOAD APK", url: "https://dl.wedxc.com/download/dXBsb2Fkcy9BbmRyb2lkL0dlcmVuY2lhZG9yMy4xLjguYXBr/h/1c919085bde4455d16a2c5d3bfc10cdc" }] },
-    { name: "Youtube Smart", icon: "img/youtube.png", category: "utilidades", platform: "Youtube para Smart TV", version: "APK", type: "DOWNLOAD APK", buttons: [{ label: "DOWNLOAD APK", url: "https://dl.wedxc.com/download/dXBsb2Fkcy9BbmRyb2lkL1lvdVR1YmUuYXBr/h/3739cf8451fbcb28f23b52b634bc8165" }] },
-    { name: "Android Home", icon: "img/launcher.png", category: "utilidades", platform: "Launcher para TV Box", version: "APK", type: "DOWNLOAD APK", buttons: [{ label: "DOWNLOAD APK", url: "https://dl.wedxc.com/download/dXBsb2Fkcy9BbmRyb2lkL2hvbWUuYXBr/h/0dd6fc0829408ea165d7e82afa4f10da" }] },
-    { name: "Beach Buggy", icon: "img/beach.png", category: "games", platform: "Android TV / Box / Celular", version: "APK", type: "APK DOWNLOAD", buttons: [{ label: "DOWNLOAD APK", url: "https://dl.wedxc.com/download/dXBsb2Fkcy9BbmRyb2lkL2JlYWNoLWJ1Z2d5LmFwaw==/h/6c035da1afdf69d96879273f5b383039" }] },
-    { name: "Retro Games", icon: "img/retro.jpg", category: "games", platform: "Android TV / Box / Celular", version: "APK", type: "APK DOWNLOAD", buttons: [{ label: "DOWNLOAD APK", url: "https://dl.wedxc.com/download/dXBsb2Fkcy9BbmRyb2lkL3JldHJvZ2FtZS5hcGs=/h/48b776af8805d3afb72e5693056cf9a6" }] },
-    { name: "Happy Chick", icon: "img/happy.png", category: "games", platform: "Android TV / Box / Celular", version: "APK", type: "APK DOWNLOAD", buttons: [{ label: "DOWNLOAD APK", url: "https://dl.wedxc.com/download/dXBsb2Fkcy9BbmRyb2lkL2hhcHB5Y2hpY2sxODguYXBr/h/36fcfd963a16cb722d85bad37d015cea" }] },
-    { name: "Roms", icon: "img/game.png", category: "games", platform: "Roms Downloads", version: "Clássicos", type: "ACESSAR SITE", buttons: [{ label: "ACESSAR SITE", url: "https://emulatorgames.net" }] }
+  const androidApps = [
+    {
+      name: "PLAYTV EXTREME",
+      icon: "img/extreme.png",
+      platform: "Android TV / Box / Celular",
+      version: "APK 2026",
+      type: "APK DOWNLOAD",
+      buttons: [{ label: "DOWNLOAD APK", url: "https://drive.google.com/uc?export=download&id=1nbjUy6Ju67zhjQL8y00XtSCMJjFMjYzy" }]
+    },
+    {
+      name: "PLAYTV UX",
+      icon: "img/apk.png",
+      platform: "Android TV / Box / Celular",
+      version: "APK 2026",
+      type: "APK DOWNLOAD",
+      buttons: [{ label: "DOWNLOAD APK", url: "https://drive.google.com/uc?export=download&id=1jhItsn_qwsHotn7FXEu07sExmCSYceey" }]
+    },
+    {
+      name: "IPTVNATOR",
+      icon: "img/iptvnator.jpg",
+      platform: "Android TV / Box / Celular",
+      version: "APK",
+      type: "APK DOWNLOAD",
+      buttons: [{ label: "DOWNLOAD APK", url: "https://drive.google.com/uc?export=download&id=1wEG4m6nxOkmtWveqBYXGifsIqxMb5Wh0" }]
+    },
+    // FIVETV APPS (ESTÁTICOS / FALLBACK)
+    {
+      name: "NewHybrid",
+      icon: "img/NewHybrid.png",
+      platform: "Android TV / Box / Celular",
+      version: "1.6.9",
+      type: "APK DOWNLOAD",
+      buttons: [{ label: "DOWNLOAD APK", url: "https://fivetv5.com/api/apps/1/file" }]
+    },
+    {
+      name: "NewBraz",
+      icon: "img/brazprocentral.png",
+      platform: "Android TV / Box / Celular",
+      version: "8.1.1",
+      type: "APK DOWNLOAD",
+      buttons: [{ label: "DOWNLOAD APK", url: "https://fivetv5.com/api/apps/2/file" }]
+    },
+    {
+      name: "DreamTV",
+      icon: "img/dreamtv.png",
+      platform: "Android TV / Box / Celular",
+      version: "APK",
+      type: "APK DOWNLOAD",
+      buttons: [{ label: "DOWNLOAD APK", url: "https://fivetv5.com/api/apps/3/file" }]
+    },
+    {
+      name: "CENTRAL V3",
+      icon: "img/centralv3.jpg",
+      platform: "Android TV / Box / Celular",
+      version: "APK",
+      type: "APK DOWNLOAD",
+      buttons: [{ label: "DOWNLOAD APK", url: "https://fivetv5.com/api/apps/4/file" }]
+    }
   ];
 
+  const pcApps = [
+    {
+      name: "IPTVNATOR",
+      icon: "img/iptvnator.jpg",
+      platform: "Windows / Mac / Linux",
+      version: "PC",
+      type: "DOWNLOAD PC",
+      buttons: [{ label: "DOWNLOAD PC", url: "https://drive.google.com/uc?export=download&id=1wEG4m6nxOkmtWveqBYXGifsIqxMb5Wh0" }]
+    }
+  ];
+
+  const iosApps = [
+    {
+      name: "Smarters Player Lite",
+      icon: "img/samartersplayerlite.png",
+      platform: "iPhone / iPad",
+      version: "App Store",
+      type: "APP STORE",
+      buttons: [{ label: "ACESSAR", url: "https://apps.apple.com/br/app/smarters-player-lite/id1628995509" }]
+    },
+    {
+      name: "IPTV Smarters GSE",
+      icon: "img/gsesmarters.jpg",
+      platform: "iPhone / iPad",
+      version: "App Store",
+      type: "APP STORE",
+      buttons: [{ label: "ACESSAR", url: "https://apps.apple.com/br/app/iptv-smarters-gse-tv-player/id6443493076" }]
+    },
+    {
+      name: "DMAC IPTV",
+      icon: "img/dmaciptv.png",
+      platform: "iPhone / iPad",
+      version: "App Store",
+      type: "APP STORE",
+      buttons: [{ label: "ACESSAR", url: "https://apps.apple.com/br/app/dmac-iptv/id1524596259" }]
+    },
+    {
+      name: "Blink Player Pro",
+      icon: "img/blickplayerpro.png",
+      platform: "iPhone / iPad",
+      version: "App Store",
+      type: "APP STORE",
+      buttons: [{ label: "ACESSAR", url: "https://apps.apple.com/br/app/blink-player-pro/id1635779666" }]
+    },
+    {
+      name: "Mobile Tv Hub",
+      icon: "img/mobiletvhub.png",
+      platform: "iPhone / iPad",
+      version: "App Store",
+      type: "APP STORE",
+      buttons: [{ label: "ACESSAR", url: "https://apps.apple.com/br/app/mobile-tv-hub/id1500385182" }]
+    }
+  ];
+
+  // ------------------------------------------------------------
+  // FEEDBACK SONORO (AUDIO CONTEXT)
+  // ------------------------------------------------------------
   let audioCtx = null;
   function beep(freq = 520, duration = 55, vol = 0.04) {
     try {
@@ -210,49 +292,14 @@
     } catch (_) {}
   }
 
-  let activeCategory = 'all';
-  let focusIndex = 0;
-  let focusables = [];
-
-  const appsGrid = document.getElementById('appsGrid');
-  const appsCount = document.getElementById('appsCount');
-  const totalAppsCount = document.getElementById('totalAppsCount');
-  const tabsContainer = document.getElementById('tabsContainer');
-  const tabButtons = Array.from(tabsContainer.querySelectorAll('.tab'));
-
-  function renderApps(category) {
-    activeCategory = category;
-    const filtered = category === 'all'
-      ? allApps
-      : allApps.filter(app => app.category.toLowerCase() === category.toLowerCase());
-
-    const label = category === 'all' ? 'todos os apps' : `categoria "${category}"`;
-    appsCount.innerHTML = `Exibindo <strong>${filtered.length}</strong> app${filtered.length !== 1 ? 's' : ''} em ${label}`;
-
-    appsGrid.innerHTML = filtered.map((app, i) => buildCardHTML(app, i)).join('');
-
-    appsGrid.querySelectorAll('.app-icon-img').forEach(img => {
-      img.addEventListener('error', e => {
-        const wrap = e.target.closest('.app-icon-wrap');
-        if (wrap) {
-          e.target.style.display = 'none';
-          const fallback = wrap.querySelector('.icon-fallback');
-          if (fallback) fallback.style.display = 'flex';
-        }
-      }, { once: true });
-    });
-
-    rebuildFocusables();
-
-    const firstCard = appsGrid.querySelector('.app-card');
-    if (firstCard) {
-      focusIndex = indexOfFocusable(firstCard);
-      if (focusIndex < 0) focusIndex = 0;
-      applyFocus(focusIndex, false);
-    }
+  // ------------------------------------------------------------
+  // RENDER DE CARDS E SEÇÕES
+  // ------------------------------------------------------------
+  function escapeHtml(str) {
+    return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   }
 
-  function buildCardHTML(app, i) {
+  function buildCardHTML(app) {
     const name = escapeHtml(app.name);
     const platform = escapeHtml(app.platform);
     const type = escapeHtml(app.type);
@@ -268,7 +315,7 @@
     `).join('');
 
     return `
-      <article class="app-card focusable" tabindex="-1" role="article" data-card-index="${i}">
+      <article class="app-card focusable" tabindex="-1" role="article">
         <div class="card-top">
           <div class="app-icon-wrap">
             <img src="${icon}" alt="${name}" class="app-icon-img" loading="lazy" />
@@ -290,29 +337,58 @@
     `;
   }
 
-  function escapeHtml(str) {
-    return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  function renderGrid(containerId, appsList) {
+    const grid = document.getElementById(containerId);
+    if (!grid) return;
+    grid.innerHTML = appsList.map(app => buildCardHTML(app)).join('');
+
+    grid.querySelectorAll('.app-icon-img').forEach(img => {
+      img.addEventListener('error', e => {
+        const wrap = e.target.closest('.app-icon-wrap');
+        if (wrap) {
+          e.target.style.display = 'none';
+          const fallback = wrap.querySelector('.icon-fallback');
+          if (fallback) fallback.style.display = 'flex';
+        }
+      }, { once: true });
+    });
   }
 
-  function activateTab(cat) {
-    tabButtons.forEach(btn => {
-      const isActive = btn.dataset.cat === cat;
-      btn.classList.toggle('active', isActive);
-      btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
-      btn.tabIndex = isActive ? 0 : -1;
-    });
-    renderApps(cat);
+  // Tentar buscar apps adicionais da FiveTV via API (se disponível)
+  async function fetchFiveTvApps() {
+    try {
+      const res = await fetch('https://fivetv5.com/api/apps');
+      if (!res.ok) return;
+      const data = await res.json();
+      if (Array.isArray(data) && data.length > 0) {
+        // Mapear apps retornados da FiveTV e append na lista de Android
+        const existingNames = new Set(androidApps.map(a => a.name.toLowerCase()));
+        data.forEach(item => {
+          if (item.name && !existingNames.has(item.name.toLowerCase())) {
+            androidApps.push({
+              name: item.name,
+              icon: item.icon || 'img/fivetv.png',
+              platform: item.platform || 'Android TV / Box',
+              version: item.version || 'APK',
+              type: 'APK DOWNLOAD',
+              buttons: [{ label: 'DOWNLOAD APK', url: item.file_url || `https://fivetv5.com/api/apps/${item.id}/file` }]
+            });
+          }
+        });
+        renderGrid('grid-android', androidApps);
+        rebuildFocusables();
+      }
+    } catch (_) {}
   }
 
-  tabButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      beep(440, 50, 0.03);
-      activateTab(btn.dataset.cat);
-    });
-  });
+  // ------------------------------------------------------------
+  // NAVEGAÇÃO CONTROLE REMOTO (D-PAD)
+  // ------------------------------------------------------------
+  let focusIndex = 0;
+  let focusables = [];
 
   function rebuildFocusables() {
-    focusables = Array.from(document.querySelectorAll('.tab, .app-card, .btn, .focusable')).filter(el => {
+    focusables = Array.from(document.querySelectorAll('.app-card, .btn, .focusable')).filter(el => {
       const rect = el.getBoundingClientRect();
       return el.offsetParent !== null || rect.width > 0 || rect.height > 0;
     });
@@ -331,7 +407,9 @@
     target.tabIndex = 0;
     focusIndex = idx;
 
-    if (scrollIntoView) target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+    if (scrollIntoView) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+    }
   }
 
   function findBestInDirection(direction) {
@@ -375,14 +453,14 @@
   document.addEventListener('keydown', (e) => {
     let handled = false;
     switch (e.key) {
-      case 'ArrowRight': { const idx = findBestInDirection('right'); if (idx >= 0) { applyFocus(idx); beep(500, 50, 0.035); } handled = true; break; }
-      case 'ArrowLeft':  { const idx = findBestInDirection('left');  if (idx >= 0) { applyFocus(idx); beep(500, 50, 0.035); } handled = true; break; }
-      case 'ArrowDown':  { const idx = findBestInDirection('down');  if (idx >= 0) { applyFocus(idx); beep(500, 50, 0.035); } handled = true; break; }
-      case 'ArrowUp':    { const idx = findBestInDirection('up');    if (idx >= 0) { applyFocus(idx); beep(500, 50, 0.035); } handled = true; break; }
+      case 'ArrowRight': { const idx = findBestInDirection('right'); if (idx >= 0) { applyFocus(idx); beep(500, 45, 0.035); } handled = true; break; }
+      case 'ArrowLeft':  { const idx = findBestInDirection('left');  if (idx >= 0) { applyFocus(idx); beep(500, 45, 0.035); } handled = true; break; }
+      case 'ArrowDown':  { const idx = findBestInDirection('down');  if (idx >= 0) { applyFocus(idx); beep(500, 45, 0.035); } handled = true; break; }
+      case 'ArrowUp':    { const idx = findBestInDirection('up');    if (idx >= 0) { applyFocus(idx); beep(500, 45, 0.035); } handled = true; break; }
       case 'Enter':
       case ' ': {
         const focused = focusables[focusIndex];
-        if (focused) { beep(620, 70, 0.05); focused.click(); }
+        if (focused) { beep(640, 70, 0.05); focused.click(); }
         handled = e.key === ' ';
         break;
       }
@@ -391,7 +469,7 @@
   });
 
   document.addEventListener('click', (e) => {
-    const target = e.target.closest('.focusable, .tab, .btn');
+    const target = e.target.closest('.focusable, .app-card, .btn');
     if (!target) return;
     rebuildFocusables();
     const idx = indexOfFocusable(target);
@@ -404,8 +482,16 @@
   });
 
   function init() {
-    totalAppsCount.textContent = allApps.length;
-    renderApps('all');
+    renderGrid('grid-android', androidApps);
+    renderGrid('grid-pc', pcApps);
+    renderGrid('grid-ios', iosApps);
+    
+    rebuildFocusables();
+    if (focusables.length > 0) {
+      applyFocus(0, false);
+    }
+
+    fetchFiveTvApps();
   }
 
   init();
