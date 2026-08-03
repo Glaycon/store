@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PlayTV Store — Apps para TV Box, Smart TV, iOS e PC</title>
+  <title>STORE APPS — PlayTV</title>
   <meta name="description" content="Baixe os melhores apps para Android TV, TV Box, iPhone, iPad e Computador." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,8 +24,7 @@
       --text-secondary: #9a8bb5;
       --text-muted:     #6b5d85;
       --card-radius:    18px;
-      --transition:     0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      --focus-glow:     0 0 0 4px rgba(255, 122, 24, 0.65), 0 8px 30px rgba(255, 122, 24, 0.4);
+      --transition:     0.18s cubic-bezier(0.4, 0, 0.2, 1);
     }
     html { font-family: 'Inter', system-ui, sans-serif; font-size: 16px; scroll-behavior: smooth; }
     body { min-height: 100vh; background: linear-gradient(135deg, var(--bg-start), var(--bg-mid), var(--bg-end)); background-attachment: fixed; color: var(--text-primary); overflow-x: hidden; }
@@ -47,8 +46,9 @@
     .logo-text span.tv { color: var(--text-primary); }
     .logo-subtitle { font-size: 0.7rem; font-weight: 500; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 2px; }
 
-    .hero { padding: 28px 32px 12px; text-align: center; }
-    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; letter-spacing: -1px; line-height: 1.15; margin-bottom: 8px; }
+    /* HERO */
+    .hero { padding: 32px 32px 12px; text-align: center; }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -1px; line-height: 1.1; margin-bottom: 8px; text-transform: uppercase; }
     .hero h1 .gradient-text { background: var(--accent-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .hero p { color: var(--text-secondary); font-size: 1rem; font-weight: 400; max-width: 540px; margin: 0 auto; line-height: 1.5; }
 
@@ -61,8 +61,8 @@
 
     .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
 
-    .app-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--card-radius); padding: 20px; display: flex; flex-direction: column; gap: 14px; cursor: pointer; transition: all var(--transition); backdrop-filter: blur(16px); position: relative; overflow: hidden; }
-    .app-card:hover, .app-card.focused { transform: translateY(-4px) scale(1.02); border-color: var(--accent-orange); box-shadow: var(--focus-glow); outline: none; z-index: 2; }
+    /* CARDS (SEM FOCO NO CARD INTEIRO) */
+    .app-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--card-radius); padding: 20px; display: flex; flex-direction: column; gap: 14px; backdrop-filter: blur(16px); position: relative; overflow: hidden; }
 
     .card-top { display: flex; align-items: flex-start; gap: 14px; }
     .app-icon-wrap { width: 64px; height: 64px; border-radius: 16px; overflow: hidden; flex-shrink: 0; background: linear-gradient(135deg, rgba(255,122,24,0.2), rgba(255,61,129,0.2)); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.08); }
@@ -79,11 +79,38 @@
     .badge-version { background: rgba(255,255,255,0.06); color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1); }
 
     .card-buttons { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
-    .btn { display: block; width: 100%; padding: 11px 14px; border-radius: 12px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; text-align: center; text-decoration: none; cursor: pointer; border: none; transition: all var(--transition); outline: none; }
+
+    /* BOTÕES COM FOCO SUPER DESTACADO */
+    .btn { display: block; width: 100%; padding: 12px 14px; border-radius: 12px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; text-align: center; text-decoration: none; cursor: pointer; border: 2px solid transparent; transition: all var(--transition); outline: none; position: relative; }
+    
     .btn-primary { background: var(--accent-grad-135); color: #fff; box-shadow: 0 4px 16px rgba(255,122,24,0.35); }
-    .btn-primary:hover, .btn-primary.focused { transform: translateY(-1px); box-shadow: 0 6px 22px rgba(255,122,24,0.5), var(--focus-glow); outline: none; }
-    .btn-secondary { background: var(--glass-bg); color: var(--text-primary); border: 1px solid var(--glass-border); }
-    .btn-secondary:hover, .btn-secondary.focused { background: rgba(255,255,255,0.12); border-color: var(--accent-orange); transform: translateY(-1px); box-shadow: var(--focus-glow); outline: none; }
+    .btn-secondary { background: var(--glass-bg); color: var(--text-primary); border-color: var(--glass-border); }
+
+    /* ESTADO SELECIONADO (D-PAD / HOVER) */
+    .btn:hover, .btn.focused, .btn:focus-visible {
+      transform: scale(1.06);
+      z-index: 10;
+      border-color: #ffffff !important;
+      background: linear-gradient(90deg, #ff9d00, #ff0055) !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 0 5px rgba(255, 122, 24, 0.7), 0 8px 30px rgba(255, 0, 85, 0.6) !important;
+      animation: btnPulse 1.2s infinite alternate;
+    }
+
+    @keyframes btnPulse {
+      0% { box-shadow: 0 0 0 5px rgba(255, 122, 24, 0.7), 0 8px 30px rgba(255, 0, 85, 0.6); }
+      100% { box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.9), 0 12px 40px rgba(255, 122, 24, 0.9); }
+    }
+
+    /* ESTADO QUANDO CLICA (CLICK / ENTER) */
+    .btn.clicked {
+      transform: scale(0.98) !important;
+      background: linear-gradient(90deg, #00e676, #00b0ff) !important;
+      border-color: #00e676 !important;
+      color: #000000 !important;
+      box-shadow: 0 0 0 6px rgba(0, 230, 118, 0.8), 0 0 30px rgba(0, 176, 255, 0.8) !important;
+      animation: none !important;
+    }
 
     .footer { text-align: center; padding: 36px 32px; color: var(--text-muted); font-size: 0.78rem; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px; }
     .footer strong { background: var(--accent-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -121,11 +148,11 @@
   </header>
 
   <section class="hero">
-    <h1>Sua central de<br/><span class="gradient-text">apps para TV</span></h1>
+    <h1><span class="gradient-text">STORE APPS</span></h1>
     <p>Navegue com o controle remoto e baixe os melhores aplicativos para sua Smart TV, TV Box, iPhone ou PC.</p>
   </section>
 
-  <!-- SEÇÃO 1: ANDROID TV / BOX (SEUS APPS + FIVETV) -->
+  <!-- SEÇÃO 1: ANDROID TV / BOX -->
   <div class="section-container">
     <div class="section-header">
       <h2 class="section-title"><span class="icon">📺</span> Android TV & Box</h2>
@@ -159,7 +186,7 @@
   'use strict';
 
   // ------------------------------------------------------------
-  // SEUS APPS PRINCIPAIS E FIVETV
+  // APPS DA LOJA
   // ------------------------------------------------------------
   const androidApps = [
     {
@@ -186,7 +213,6 @@
       type: "APK DOWNLOAD",
       buttons: [{ label: "DOWNLOAD APK", url: "https://drive.google.com/uc?export=download&id=1wEG4m6nxOkmtWveqBYXGifsIqxMb5Wh0" }]
     },
-    // FIVETV APPS (ESTÁTICOS / FALLBACK)
     {
       name: "NewHybrid",
       icon: "img/NewHybrid.png",
@@ -279,7 +305,7 @@
   // FEEDBACK SONORO (AUDIO CONTEXT)
   // ------------------------------------------------------------
   let audioCtx = null;
-  function beep(freq = 520, duration = 55, vol = 0.04) {
+  function beep(freq = 520, duration = 55, vol = 0.05) {
     try {
       if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       const osc = audioCtx.createOscillator();
@@ -290,6 +316,11 @@
       gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration / 1000);
       osc.start(audioCtx.currentTime); osc.stop(audioCtx.currentTime + duration / 1000 + 0.05);
     } catch (_) {}
+  }
+
+  function playClickSound() {
+    beep(880, 80, 0.08);
+    setTimeout(() => beep(1200, 100, 0.08), 50);
   }
 
   // ------------------------------------------------------------
@@ -315,7 +346,7 @@
     `).join('');
 
     return `
-      <article class="app-card focusable" tabindex="-1" role="article">
+      <article class="app-card" role="article">
         <div class="card-top">
           <div class="app-icon-wrap">
             <img src="${icon}" alt="${name}" class="app-icon-img" loading="lazy" />
@@ -354,14 +385,12 @@
     });
   }
 
-  // Tentar buscar apps adicionais da FiveTV via API (se disponível)
   async function fetchFiveTvApps() {
     try {
       const res = await fetch('https://fivetv5.com/api/apps');
       if (!res.ok) return;
       const data = await res.json();
       if (Array.isArray(data) && data.length > 0) {
-        // Mapear apps retornados da FiveTV e append na lista de Android
         const existingNames = new Set(androidApps.map(a => a.name.toLowerCase()));
         data.forEach(item => {
           if (item.name && !existingNames.has(item.name.toLowerCase())) {
@@ -382,13 +411,14 @@
   }
 
   // ------------------------------------------------------------
-  // NAVEGAÇÃO CONTROLE REMOTO (D-PAD)
+  // NAVEGAÇÃO CONTROLE REMOTO (FOCO SOMENTE NOS BOTÕES .btn)
   // ------------------------------------------------------------
   let focusIndex = 0;
   let focusables = [];
 
   function rebuildFocusables() {
-    focusables = Array.from(document.querySelectorAll('.app-card, .btn, .focusable')).filter(el => {
+    // Foco APENAS nos botões .btn / .focusable
+    focusables = Array.from(document.querySelectorAll('.btn.focusable, .btn')).filter(el => {
       const rect = el.getBoundingClientRect();
       return el.offsetParent !== null || rect.width > 0 || rect.height > 0;
     });
@@ -450,6 +480,15 @@
     return bestIdx;
   }
 
+  function triggerButtonClick(btnElement) {
+    if (!btnElement) return;
+    playClickSound();
+    btnElement.classList.add('clicked');
+    setTimeout(() => {
+      btnElement.classList.remove('clicked');
+    }, 350);
+  }
+
   document.addEventListener('keydown', (e) => {
     let handled = false;
     switch (e.key) {
@@ -460,7 +499,12 @@
       case 'Enter':
       case ' ': {
         const focused = focusables[focusIndex];
-        if (focused) { beep(640, 70, 0.05); focused.click(); }
+        if (focused) {
+          triggerButtonClick(focused);
+          setTimeout(() => {
+            focused.click();
+          }, 150);
+        }
         handled = e.key === ' ';
         break;
       }
@@ -469,11 +513,14 @@
   });
 
   document.addEventListener('click', (e) => {
-    const target = e.target.closest('.focusable, .app-card, .btn');
+    const target = e.target.closest('.btn');
     if (!target) return;
     rebuildFocusables();
     const idx = indexOfFocusable(target);
-    if (idx >= 0) applyFocus(idx, false);
+    if (idx >= 0) {
+      applyFocus(idx, false);
+      triggerButtonClick(target);
+    }
   });
 
   document.addEventListener('focusin', (e) => {
