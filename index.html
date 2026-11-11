@@ -77,6 +77,7 @@
     .badge { font-size: 0.63rem; font-weight: 700; text-transform: uppercase; padding: 3px 9px; border-radius: 50px; }
     .badge-type { background: rgba(255,122,24,0.12); color: var(--accent-orange); border: 1px solid rgba(255,122,24,0.25); }
     .badge-version { background: rgba(255,255,255,0.06); color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1); }
+    .badge-code { background: rgba(46,213,115,0.12); color: #2ed573; border: 1px solid rgba(46,213,115,0.28); font-family: monospace; font-weight: 700; letter-spacing: 0.5px; }
 
     .card-buttons { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
 
@@ -195,58 +196,167 @@
       platform: "Android TV / Box / Celular",
       version: "1.6.9",
       type: "APK DOWNLOAD",
-      buttons: [{ label: "DOWNLOAD APK", url: "https://cloudforgedev.com.br/dl/NewHybrid.apk" }]
+      downloader: "4466913",
+      ntdown: "73783",
+      buttons: [
+        { label: "DOWNLOAD APK", url: "https://cloudforgedev.com.br/dl/NewHybrid.apk" },
+        { label: "ACESSAR LINK EXTERNO", url: "http://abrela.me/newhybrid" }
+      ]
     },
     {
       name: "NewBraz",
       icon: "img/brazprocentral.png",
       platform: "Android TV / Box / Celular",
-      version: "8.1.1",
+      version: "8.1.4",
       type: "APK DOWNLOAD",
-      buttons: [{ label: "DOWNLOAD APK", url: "https://cloudforgedev.com.br/dl/NewBraz.apk" }]
+      downloader: "665451",
+      ntdown: "57229",
+      buttons: [
+        { label: "DOWNLOAD APK", url: "https://cloudforgedev.com.br/dl/NewBraz.apk" },
+        { label: "ACESSAR LINK EXTERNO", url: "http://abrela.me/newprobraz" }
+      ]
     },
     {
       name: "Braz Pro",
       icon: "img/brazprocentral.png",
       platform: "Android TV / Box / Celular",
-      version: "APK",
+      version: "8.0.1",
       type: "APK DOWNLOAD",
-      buttons: [{ label: "DOWNLOAD APK", url: "https://cloudforgedev.com.br/dl/BrazPro.apk" }]
+      downloader: "347246",
+      ntdown: "45352",
+      buttons: [
+        { label: "DOWNLOAD APK", url: "https://cloudforgedev.com.br/dl/BrazPro.apk" },
+        { label: "ACESSAR LINK EXTERNO", url: "http://abrela.me/brazpro3" }
+      ]
     },
     {
-      name: "IPTVNATOR",
-      icon: "img/iptvnator.jpg",
+      name: "Central One",
+      icon: "img/centralv3.jpg",
+      platform: "Android TV / Box / Celular",
+      version: "3.1.1",
+      type: "APK DOWNLOAD",
+      downloader: "425777",
+      ntdown: "17322",
+      buttons: [
+        { label: "DOWNLOAD APK", url: "https://cloudforgedev.com.br/dl/CentralOne.apk" },
+        { label: "ACESSAR LINK EXTERNO", url: "http://abrela.me/centralv3" }
+      ]
+    },
+    {
+      name: "FiveTV Pro",
+      icon: "img/fivetv.png",
+      platform: "Android TV / Box / Celular",
+      version: "7.0",
+      type: "APK DOWNLOAD",
+      downloader: "715050",
+      ntdown: "49825",
+      buttons: [
+        { label: "DOWNLOAD APK", url: "https://cloudforgedev.com.br/dl/FiveTVPro.apk" },
+        { label: "ACESSAR LINK EXTERNO", url: "http://abrela.me/ftvpro" }
+      ]
+    },
+    {
+      name: "C-X",
+      icon: "img/five.png",
       platform: "Android TV / Box / Celular",
       version: "APK",
       type: "APK DOWNLOAD",
-      buttons: [{ label: "DOWNLOAD APK", url: "https://github.com/4gray/iptvnator/releases/download/v0.25.0/iptvnator-tv-shell-0.1.0-73d8898.apk" }]
+      downloader: "804649",
+      ntdown: "91264",
+      buttons: [
+        { label: "DOWNLOAD APK", url: "https://cloudforgedev.com.br/dl/C-X.apk" },
+        { label: "ACESSAR LINK EXTERNO", url: "https://abrela.me/ftvcx" }
+      ]
+    },
+    {
+      name: "STB Android",
+      icon: "img/iptv.png",
+      platform: "Android TV / Box",
+      version: "APK",
+      type: "APK DOWNLOAD",
+      downloader: "283390",
+      ntdown: "91213",
+      buttons: [
+        { label: "DOWNLOAD APK", url: "https://cloudforgedev.com.br/dl/STB-Android.apk" },
+        { label: "ACESSAR LINK EXTERNO", url: "http://abrela.me/stb" }
+      ]
+    },
+    {
+      name: "Brasflix",
+      icon: "img/launcher.png",
+      platform: "Smart TV / Android TV",
+      version: "APK",
+      type: "APK DOWNLOAD",
+      downloader: "685314",
+      ntdown: "66636",
+      buttons: [
+        { label: "DOWNLOAD APK", url: "https://cloudforgedev.com.br/dl/Brasflix.apk" },
+        { label: "ACESSAR LINK EXTERNO", url: "http://abrela.me/brasflix" }
+      ]
+    },
+    {
+      name: "IPTV Smarters Pro",
+      icon: "img/smarters.png",
+      platform: "Android TV / Box / Celular",
+      version: "3.5.7",
+      type: "APK DOWNLOAD",
+      downloader: "422021",
+      ntdown: "28771",
+      buttons: [
+        { label: "DOWNLOAD APK", url: "https://cloudforgedev.com.br/dl/IPTVSmartersPro.apk" },
+        { label: "ACESSAR LINK EXTERNO", url: "https://abrela.me/iptvsp" }
+      ]
+    },
+    {
+      name: "XCIPTV Player",
+      icon: "img/xciptv.webp",
+      platform: "Android TV / Box / Celular",
+      version: "APK",
+      type: "APK DOWNLOAD",
+      downloader: "437122",
+      ntdown: "16695",
+      buttons: [
+        { label: "DOWNLOAD APK", url: "https://cloudforgedev.com.br/dl/XCIPTV.apk" },
+        { label: "ACESSAR LINK EXTERNO", url: "https://abrela.me/xciptv" }
+      ]
     },
     {
       name: "DreamTV",
       icon: "img/dreamtv.png",
       platform: "Android TV / Box / Celular",
-      version: "APK",
+      version: "1.1.0",
       type: "APK DOWNLOAD",
-      buttons: [{ label: "DOWNLOAD APK", url: "https://fivetv5.com/api/apps/3/file" }]
+      downloader: "998201 / 721967",
+      m7: "9897",
+      buttons: [
+        { label: "DOWNLOAD APK", url: "https://cloudforgedev.com.br/dl/DreamTV.apk" },
+        { label: "ACESSAR LINK EXTERNO", url: "http://abr.la/dreamtv" }
+      ]
     },
     {
-      name: "CENTRAL V3",
-      icon: "img/centralv3.jpg",
+      name: "IPTVNATOR",
+      icon: "img/iptvnator.jpg",
       platform: "Android TV / Box / Celular",
-      version: "APK",
+      version: "0.25.0",
       type: "APK DOWNLOAD",
-      buttons: [{ label: "DOWNLOAD APK", url: "https://fivetv5.com/api/apps/4/file" }]
+      buttons: [
+        { label: "DOWNLOAD APK", url: "https://github.com/4gray/iptvnator/releases/download/v0.25.0/iptvnator-tv-shell-0.1.0-73d8898.apk" },
+        { label: "ACESSAR LINK EXTERNO", url: "https://github.com/4gray/iptvnator" }
+      ]
     }
   ];
 
   const pcApps = [
     {
-      name: "IPTVNATOR",
-      icon: "img/iptvnator.jpg",
-      platform: "Windows / Mac / Linux",
-      version: "PC",
-      type: "DOWNLOAD PC",
-      buttons: [{ label: "DOWNLOAD PC (EXE)", url: "https://github.com/4gray/iptvnator/releases/download/v0.25.0/iptvnator-0.25.0-windows-x64-setup.exe" }]
+      name: "WebPlayer Online",
+      icon: "img/five.png",
+      platform: "Navegador Web / PC / Mac",
+      version: "WEB",
+      type: "WEB PLAYER",
+      buttons: [
+        { label: "WEBPLAYER OPÇÃO 1", url: "https://web.fivetv.xyz" },
+        { label: "WEBPLAYER OPÇÃO 2", url: "http://webtv.iptvsmarters.com" }
+      ]
     },
     {
       name: "IPTV Smarters Pro",
@@ -257,6 +367,17 @@
       buttons: [
         { label: "DOWNLOAD 64-BIT", url: "https://fivetv5.com/api/apps/8/file" },
         { label: "DOWNLOAD 32-BIT", url: "https://fivetv5.com/api/apps/7/file" }
+      ]
+    },
+    {
+      name: "IPTVNATOR",
+      icon: "img/iptvnator.jpg",
+      platform: "Windows / Mac / Linux",
+      version: "0.25.0",
+      type: "DOWNLOAD PC",
+      buttons: [
+        { label: "DOWNLOAD PC (EXE)", url: "https://github.com/4gray/iptvnator/releases/download/v0.25.0/iptvnator-0.25.0-windows-x64-setup.exe" },
+        { label: "ACESSAR LINK EXTERNO", url: "https://github.com/4gray/iptvnator/releases/latest" }
       ]
     }
   ];
@@ -341,6 +462,12 @@
     const icon = escapeHtml(app.icon);
     const firstLetter = name.charAt(0).toUpperCase();
 
+    const codesHTML = [
+      app.downloader ? `<span class="badge badge-code" title="Código Downloader">DL: ${escapeHtml(app.downloader)}</span>` : '',
+      app.ntdown ? `<span class="badge badge-code" title="Código Ntdown">NT: ${escapeHtml(app.ntdown)}</span>` : '',
+      app.m7 ? `<span class="badge badge-code" title="Código M7">M7: ${escapeHtml(app.m7)}</span>` : ''
+    ].filter(Boolean).join('');
+
     const btnsHTML = app.buttons.map((b, idx) => `
       <a href="${escapeHtml(b.url)}" target="_blank" rel="noopener noreferrer"
          class="btn ${idx === 0 ? 'btn-primary' : 'btn-secondary'} focusable" tabindex="-1">
@@ -363,6 +490,7 @@
         <div class="card-badges">
           ${type ? `<span class="badge badge-type">${type}</span>` : ''}
           ${version ? `<span class="badge badge-version">${version}</span>` : ''}
+          ${codesHTML}
         </div>
         <div class="card-buttons">
           ${btnsHTML}

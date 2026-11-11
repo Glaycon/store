@@ -1,1 +1,86 @@
+# Central de Links e Informações
 
+## 🎬 WebPlayer Online
+- Opção 1: https://web.fivetv.xyz
+- Opção 2: http://webtv.iptvsmarters.com
+
+## 🌐 DNS do STB
+- DNS Principal: 212.102.61.86
+- DNS Secundário 1: 185.152.66.105
+- DNS Secundário 2: 142.44.212.34
+- DNS Links: http://cdn4k.vip
+- DNS Privada: http://fourmore1.site
+
+---
+
+## 📺 Aplicativos Android
+
+### New Hybrid
+- Código Ntdown: 73783
+- Código Downloader: 4466913
+- Link Externo: http://abrela.me/newhybrid
+- Download APK: https://cloudforgedev.com.br/dl/NewHybrid.apk
+
+### New Braz
+- Código Ntdown: 57229
+- Código Downloader: 665451
+- Link Externo: http://abrela.me/newprobraz
+- Download APK: https://cloudforgedev.com.br/dl/NewBraz.apk
+
+### Braz Pro
+- Código Ntdown: 45352
+- Código Downloader: 347246
+- Link Externo: http://abrela.me/brazpro3
+- Download APK: https://cloudforgedev.com.br/dl/BrazPro.apk
+
+### Central One (versão Smarters)
+- Código Ntdown: 17322
+- Código Downloader: 425777
+- Link Externo: http://abrela.me/centralv3
+- Download APK: https://cloudforgedev.com.br/dl/CentralOne.apk
+
+### FiveTV Pro
+- Código Ntdown: 49825
+- Código Downloader: 715050
+- Link Externo: http://abrela.me/ftvpro
+- Download APK: https://cloudforgedev.com.br/dl/FiveTVPro.apk
+
+### C-X
+- Código Ntdown: 91264
+- Código Downloader: 804649
+- Link Externo: https://abrela.me/ftvcx
+- Download APK: https://cloudforgedev.com.br/dl/C-X.apk
+
+### STB Android
+- Código Ntdown: 91213
+- Código Downloader: 283390
+- Link Externo: http://abrela.me/stb
+- Download APK: https://cloudforgedev.com.br/dl/STB-Android.apk
+
+### Brasflix (Android TV)
+- Código Ntdown: 66636
+- Código Downloader: 685314
+- Link Externo: http://abrela.me/brasflix
+- Download APK: https://cloudforgedev.com.br/dl/Brasflix.apk
+
+### IPTV Smarters Pro (Android)
+- Código Ntdown: 28771
+- Código Downloader: 422021
+- Link Externo: https://abrela.me/iptvsp
+- Download APK: https://cloudforgedev.com.br/dl/IPTVSmartersPro.apk
+
+### XCIPTV Player
+- Código Ntdown: 16695
+- Código Downloader: 437122
+- Link Externo: https://abrela.me/xciptv
+- Download APK: https://cloudforgedev.com.br/dl/XCIPTV.apk
+
+### DreamTV
+- Código M7 Downloads: 9897
+- Código Downloader: 998201 ou 721967
+- Link Externo: http://abr.la/dreamtv
+- Download APK: https://cloudforgedev.com.br/dl/DreamTV.apk
+
+### IPTVnator
+- Link Externo: https://github.com/4gray/iptvnator
+- Download APK: https://github.com/4gray/iptvnator/releases/download/v0.25.0/iptvnator-tv-shell-0.1.0-73d8898.apk
